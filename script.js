@@ -12,7 +12,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    return b !== 0 ? a / b : 'Error';
+    return b !== 0 ? a / b : 'ERROR';
 }
 
 function operator(operation, a, b) {
@@ -51,7 +51,7 @@ function resetCalculator() {
 
 function handleButtonClick(value) {
     // isStart = false;
-    if(displayInput.value === 'Error'){
+    if(displayInput.value === 'ERROR'){
         resetCalculator();
         handleButtonClick(value);
     }
@@ -68,13 +68,15 @@ function handleButtonClick(value) {
         currentOperator = value; // Set the current operator
         updateDisplay(previousNum + ` ${currentOperator} `);
     } else if (value === '=') {
-
         if (previousNum && nextNum && currentOperator) {
             const result = operator(currentOperator, parseFloat(previousNum), parseFloat(nextNum));
             updateDisplay(Math.round(result));
             previousNum = result.toString();
             nextNum = '';
             currentOperator = '';
+        }
+        else{
+            return updateDisplay("ERROR");
         }
     }  else {
         // Handle number input
