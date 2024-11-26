@@ -70,7 +70,7 @@ function handleButtonClick(value) {
     } else if (value === '=') {
         if (previousNum && nextNum && currentOperator) {
             const result = operator(currentOperator, parseFloat(previousNum), parseFloat(nextNum));
-            updateDisplay(Math.round(result));
+            updateDisplay(result.toFixed(1));
             previousNum = result.toString();
             nextNum = '';
             currentOperator = '';
