@@ -8,12 +8,9 @@ body {
     padding: 20px;
 }
 header{
-    background-color: aliceblue;
     padding: 0px;
-
-        text-align: center;
-        margin-bottom: 20px;
-    
+    text-align: center;
+    margin-bottom: 20px;
     
 }
 
@@ -29,29 +26,34 @@ header{
 
 .input-bar {
     margin-bottom: 20px;
-    /* color: wheat; */
+    align-items: center;
 }
 
 #display {
     /* width: 100%; */
     padding: 10px;
     font-size: 1.5rem;
+    background-color: rgba(244, 244, 244, 0.808);
     text-align: right;
     border: 2px solid #ddd;
     border-radius: 5px;
     margin-bottom: 20px;
-
+    color: rgb(3, 121, 3);
 }
 
 .buttons-operation{
     display: flex;
+    justify-content: space-between;
+    gap: 15px;
 }
 /* Button Container */
 .buttons-container {
     display: flex;
     flex-wrap: wrap;
-    /* gap: 20px; */
-    justify-content: space-between;
+    /* width: 50%; */
+    gap: 20px;
+    justify-content: center;
+    /* background-color: red; */
 }
 
 /* Button Styling */
@@ -62,6 +64,16 @@ button {
     padding: 15px;
     width: 70px;
     height: 70px;
+}
+.equal, .clear{
+    width: 140px;
+}
+
+/* operation section */
+.operations{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .operations button{
     background-color: orange;
