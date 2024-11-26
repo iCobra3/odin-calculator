@@ -46,11 +46,11 @@ function resetCalculator() {
     previousNum = '';
     currentOperator = '';
     nextNum = '';
-    isDecimalUsed = false;
     updateDisplay('0');
 }
 
 function handleButtonClick(value) {
+    // isStart = false;
     if(displayInput.value === 'Error'){
         resetCalculator();
         handleButtonClick(value);
@@ -63,6 +63,7 @@ function handleButtonClick(value) {
             updateDisplay(result);
             previousNum = result.toString();
             nextNum = '';
+        
         }
         currentOperator = value; // Set the current operator
         updateDisplay(previousNum + ` ${currentOperator} `);
@@ -70,7 +71,7 @@ function handleButtonClick(value) {
 
         if (previousNum && nextNum && currentOperator) {
             const result = operator(currentOperator, parseFloat(previousNum), parseFloat(nextNum));
-            updateDisplay(result);
+            updateDisplay(Math.round(result));
             previousNum = result.toString();
             nextNum = '';
             currentOperator = '';
@@ -82,7 +83,9 @@ function handleButtonClick(value) {
         } else {
             previousNum += value; 
         }
-        updateDisplay(displayInput.value + value);
+        // make the zero vanish if it's the first tap
+        displayInput.value === '0'? updateDisplay(value):updateDisplay(displayInput.value + value);
+
     }
 }
 
